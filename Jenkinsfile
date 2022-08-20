@@ -18,9 +18,9 @@ node {
 	   description: '', name: 'Pass')]
 	
 	  if(response=="Yes") {
-	    stage('Deploy - DataService') {
+	    stage('Release - DataService') {
 	      bat 'gradle build -x test'
-	      bat 'echo deployment tasks'
+	      bat 'echo Release this version'
 	    }
 	  }
     }
