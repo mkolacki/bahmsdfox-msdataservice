@@ -4,11 +4,11 @@ node {
     }
     
     stage ("Gradle Build - DataService") {
-        bat'gradle clean build'
+        sh'gradle clean build'
     }
     
     stage ("Gradle Bootjar-Package - DataService") {
-        bat 'gradle bootjar'
+        sh 'gradle bootjar'
     }
     
     stage('User Acceptance Test - DataService') {
@@ -18,9 +18,9 @@ node {
 	   description: '', name: 'Pass')]
 	
 	  if(response=="Yes") {
-	    stage('Deploy - DataService') {
-	      bat 'gradle build -x test'
-	      bat 'echo deployment tasks'
+	    stage('Release- DataService') {
+	      sh 'gradle build -x test'
+	      sh 'echo DataService is ready to release!'
 	    }
 	  }
     }
