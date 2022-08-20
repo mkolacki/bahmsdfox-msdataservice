@@ -4,11 +4,11 @@ node {
     }
     
     stage ("Gradle Build - DataService") {
-        bat'gradle clean build'
+        sh 'gradle clean build'
     }
     
     stage ("Gradle Bootjar-Package - DataService") {
-        bat 'gradle bootjar'
+        sh 'gradle bootjar'
     }
     
     stage('User Acceptance Test - DataService') {
@@ -19,8 +19,8 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Release - DataService') {
-	      bat 'gradle build -x test'
-	      bat 'echo Release this version'
+	      sh 'gradle build -x test'
+	      sh 'echo Release this version'
 	    }
 	  }
     }
